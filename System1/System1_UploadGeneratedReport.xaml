@@ -7,7 +7,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>605,2926</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>605,3027</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>System1_UploadGeneratedReport_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="34">
@@ -48,7 +48,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="31">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="62">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -80,9 +80,11 @@
       <AssemblyReference>NPOI</AssemblyReference>
       <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
       <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="System1_UploadGeneratedReport" sap:VirtualizedContainerService.HintSize="552,2861" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="System1_UploadGeneratedReport" sap:VirtualizedContainerService.HintSize="552,2962" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="si:FileInfo" Name="strFileInfo" />
     </Sequence.Variables>
@@ -91,13 +93,13 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <uix:NApplicationCard WebDriverMode="{x:Null}" AttachMode="ByInstance" DisplayName="Use Browser Edge: ACME System 1 - Dashboard" sap:VirtualizedContainerService.HintSize="510,2769" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="2ca4d9f5-1901-4006-9062-77b76bf61f02" Version="V2">
+    <uix:NApplicationCard WebDriverMode="{x:Null}" AttachMode="ByInstance" DisplayName="Use Browser Edge: ACME System 1 - Dashboard" sap:VirtualizedContainerService.HintSize="510,2870" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="2ca4d9f5-1901-4006-9062-77b76bf61f02" Version="V2">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="476,2553" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="476,2654" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:String" Name="strConfirmationID" />
               <Variable x:TypeArguments="x:String" Name="strFullFilePath" />
@@ -202,6 +204,14 @@
               </uix:NGetText.Text>
             </uix:NGetText>
             <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[strConfirmationID.substring(strConfirmationID.Length - 32)]" />
+            <Assign sap:VirtualizedContainerService.HintSize="434,61" sap2010:WorkflowViewState.IdRef="Assign_2">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[out_ConfirmationID]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">[strConfirmationID.substring(strConfirmationID.Length - 32)]</InArgument>
+              </Assign.Value>
+            </Assign>
             <uix:NClick ClickType="Single" DisplayName="Click 'push button OK'" sap:VirtualizedContainerService.HintSize="434,156" sap2010:WorkflowViewState.IdRef="NClick_8" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="2ca4d9f5-1901-4006-9062-77b76bf61f02" Version="V1">
               <uix:NClick.Target>
                 <uix:TargetAnchorable DesignTimeRectangle="835, 170, 64, 32" ElementType="Button" FriendlyName="'push button OK'" FullSelectorArgument="&lt;ctrl name='acme-test.uipath.com diz' role='dialog' /&gt;&lt;ctrl name='OK' role='push button' /&gt;" FuzzySelectorArgument="&lt;ctrl name='acme-test.uipath.com diz' role='dialog' /&gt;&lt;ctrl name='OK' role='push button' automationid='' /&gt;" Guid="5bb5eccf-1b9e-480f-b415-6ae415349a2c" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEQAAAAkCAYAAAAw55zoAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGFSURBVGhD7Zq/SgNBEIfzVL6CcI2PYGFhY69gkdY/zYEGfIE8QOoEG0llYbDRQkERQRElGEjEENb8VufcTDZg4JY93N/AR7Izm2K/zM0FcrUsywz5hUIUhZC1zV2zvdcweZ4nRf3w2J59TggKvg+kABphTogUayvrSSHnppAf/i5k6/R/QyEKClFQiIJCFBSioBBFFYR0rt9Mfzg2iI/xxK7dOkJyq42e3Xv3OprZUxqxhXRv+4WE/fa9aZ4/2fXFw6DY4wpBHnWIkXqpxBSy0byyh4UEN39y9mjzO60bu0ZAiOQhzt1fKjGFtC5f7AF9NQTq8l46Q3LBiCkE3zrCV0PIZYKADESwS0WIKWSZDsGsCTpMhZhCMCMQi2YIZgzWCHSL7JfOCUJMIUBmA6S4dxl0hOxxJchlFmywxhYCcEj5HYJX3QEIN/f8/hnu1lsFIZWCQhQUoqAQBYUoKERBIQoKUSwtJBEoRLFQSP3gqCimhvfP7mQfh5g2gvdxCPINhcyQmS/ZrK+P+xLPoQAAAABJRU5ErkJggg==" InformativeScreenshot="b84923ea74def51735b581dd226602b7.png" ScopeSelectorArgument="&lt;wnd app='msedge.exe' cls='Chrome_WidgetWin_1' title='ACME System 1 - Upload Yearly Report e mais 5 páginas - Trabalho*' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Visibility="Interactive" />
